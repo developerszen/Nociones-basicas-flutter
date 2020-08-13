@@ -63,7 +63,18 @@ class _MyHomePageState extends State<HomePage> {
                         child: Icon(Icons.arrow_downward),
                         onPressed: (){
                             setState(() {
-                                _contador++;
+                                _contador--;
+                            });
+                            print(_contador);
+                        }
+                    ),
+                    SizedBox(width: 10),
+                    FloatingActionButton(
+                        child: Icon(Icons.exposure_zero),
+                        backgroundColor: Colors.green,
+                        onPressed: (){
+                            setState(() {
+                                _contador = 0;
                             });
                             print(_contador);
                         }
