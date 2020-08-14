@@ -33,9 +33,32 @@ class _MyHomePageState extends State<HomePage> {
                 title: Text('Home'),
             ),
             body: Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                // child: Column(
+                child: ListView(
+                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                        ListTile(
+                            title: Text('data'),
+                            subtitle: Text('Descripcion de mi dato'),
+                            leading: Icon(Icons.account_circle),
+                            trailing: Icon(Icons.dehaze),
+                            onTap: (){
+                                // Scaffold.of(context).showSnackBar(
+                                //     SnackBar(
+                                //         content: Text('Hola soy un snackbar'),
+                                //     )
+                                // );
+                            },
+                            onLongPress: (){},
+                        ),
+                        ListTile(
+                            title: Text('data'),
+                            subtitle: Text('Descripcion de mi dato'),
+                            leading: Icon(Icons.account_circle),
+                            trailing: Icon(Icons.dehaze),
+                            onTap: (){},
+                            onLongPress: (){},
+                        ),
                         Text('Página Home'),
                         Text(
                             '$_contador',
@@ -43,6 +66,71 @@ class _MyHomePageState extends State<HomePage> {
                                 fontSize: 40
                             ),
                         ),
+                        Container(
+                            child: Text('Soy Widget Container'),
+                            width: 300,
+                            height: 300,
+                            margin: EdgeInsets.all(20),
+                            padding: EdgeInsets.all(30),
+                            alignment: Alignment.center,
+                            // color: Colors.green,
+                            decoration: BoxDecoration(
+                                color: Colors.blue,
+                                border: Border.all(
+                                    width: 5,
+                                    color: Colors.red
+                                ),
+                                borderRadius: BorderRadius.circular(50)
+                            ),
+                        ),
+                        Container(
+                            child: Text('Soy Widget Container'),
+                            width: 300,
+                            height: 300,
+                            margin: EdgeInsets.all(20),
+                            padding: EdgeInsets.all(30),
+                            alignment: Alignment.center,
+                            // color: Colors.green,
+                            decoration: BoxDecoration(
+                                color: Colors.blue,
+                                border: Border.all(
+                                    width: 5,
+                                    color: Colors.red
+                                ),
+                                borderRadius: BorderRadius.circular(50)
+                            ),
+                        ),
+                        RaisedButton(
+                            child: Container(
+                                width: 100,
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                        Icon(Icons.access_alarm),
+                                        Text('Alarma'),
+                                    ],
+                                ),
+                            ),
+                            textColor: Colors.white,
+                            splashColor: Colors.black,
+                            color: Colors.green,
+                            elevation: 10,
+                            onPressed: (){
+                                print('Me presionaste');
+                            },
+                            onLongPress: () {
+                                print('Me mantienes presionado');
+                            },
+                        ),
+                        Image(
+                            image: NetworkImage('https://strattonapps.com/wp-content/uploads/2020/02/flutter-logo-5086DD11C5-seeklogo.com_.png'),
+                            // image: AssetImage('assets/zen_logo.jpeg'),
+                            width: 250,
+                            height: 100,
+                            fit: BoxFit.fill,
+                            color: Colors.amber,
+                        )
+
                     ],
                 )
             ),
@@ -61,6 +149,7 @@ class _MyHomePageState extends State<HomePage> {
                     SizedBox(width: 10),
                     FloatingActionButton(
                         child: Icon(Icons.arrow_downward),
+                        backgroundColor: Colors.amber[900],
                         onPressed: (){
                             setState(() {
                                 _contador--;
