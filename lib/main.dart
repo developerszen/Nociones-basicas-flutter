@@ -1,3 +1,6 @@
+import 'package:app_contador/home_screen.dart';
+import 'package:app_contador/widgets/container.dart';
+import 'package:app_contador/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -10,10 +13,23 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
             title: 'Aplicación Contador',
             debugShowCheckedModeBanner: false,
-            home: HomePage(),
+            home: HomeScreen(),
         );
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Statefull Widget
 // Pagina de Home
@@ -25,39 +41,116 @@ class HomePage extends StatefulWidget {
 class _MyHomePageState extends State<HomePage> {
 
     int _contador = 0;
+    // final globalKey = GlobalKey<ScaffoldState>();
+    final globalKey = GlobalKey<ScaffoldState>();
 
     @override
     Widget build(BuildContext context){
         return Scaffold(
+            key: globalKey,
             appBar: AppBar(
                 title: Text('Home'),
+                actions: [
+                    IconButton(
+                        icon: Icon(Icons.search), 
+                        onPressed: (){}
+                    ),
+                    IconButton(
+                        icon: Icon(Icons.home), 
+                        onPressed: (){}
+                    ),
+                ],
+                leading: IconButton(
+                    icon: Icon(Icons.rotate_90_degrees_ccw), 
+                    onPressed: (){}
+                ),
             ),
             body: Center(
                 // child: Column(
                 child: ListView(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                        ListTile(
-                            title: Text('data'),
-                            subtitle: Text('Descripcion de mi dato'),
-                            leading: Icon(Icons.account_circle),
-                            trailing: Icon(Icons.dehaze),
+                        // ListTile(
+                        //     title: Text('data'),
+                        //     subtitle: Text('Descripcion de mi dato'),
+                        //     leading: Icon(Icons.account_circle),
+                        //     trailing: Icon(Icons.dehaze),
+                        //     onTap: (){
+                        //         globalKey.currentState.showSnackBar(
+                        //             new SnackBar(
+                        //                 content: Text('Alerta de Snackbar'),
+                        //                 duration: Duration(seconds: 4),
+                        //                 action: SnackBarAction(
+                        //                     label: 'OK', 
+                        //                     onPressed: (){}
+                        //                 ),
+                        //             )
+                        //         );
+                        //     },
+                        //     onLongPress: (){
+                        //         showDialog(
+                        //             context: context,
+                        //             builder: (BuildContext context){
+                        //                 return AlertDialog(
+                        //                     title: Text('Alerta'),
+                        //                     content: Text('¿Estas seguro de cerrar esta venta?'),
+                        //                     actions: [
+                        //                         FlatButton(
+                        //                             child: Text('Si'),
+                        //                             onPressed: (){}, 
+                        //                         ),
+                        //                         FlatButton(
+                        //                             child: Text('No'),
+                        //                             onPressed: (){}, 
+                        //                         ),
+                        //                     ],
+                        //                 );
+                        //             }
+                        //         );
+                        //         // showDialog(
+                        //         //     context: context,
+                        //         //     builder: (BuildContext context) {
+                        //         //         return AlertDialog(
+                        //         //             title: Text('Bienvenido'),
+                        //         //             content: Text('¿Estas seguro de cerrar esta venta?'),
+                        //         //             actions: <Widget>[
+                        //         //                 FlatButton(onPressed: (){}, child: Text('Close'))
+                        //         //             ],
+                        //         //         );
+                        //         //     }
+                        //         // );
+
+                        //     },
+                        // ),
+                        MyListTile(
+                            titulo: 'Desde widget separado',
                             onTap: (){
-                                // Scaffold.of(context).showSnackBar(
-                                //     SnackBar(
-                                //         content: Text('Hola soy un snackbar'),
-                                //     )
-                                // );
+                                globalKey.currentState.showSnackBar(
+                                    new SnackBar(
+                                        content: Text('Alerta de Snackbar 1'),
+                                        duration: Duration(seconds: 4),
+                                        action: SnackBarAction(
+                                            label: 'OK', 
+                                            onPressed: (){}
+                                        ),
+                                    )
+                                );
                             },
-                            onLongPress: (){},
                         ),
-                        ListTile(
-                            title: Text('data'),
-                            subtitle: Text('Descripcion de mi dato'),
-                            leading: Icon(Icons.account_circle),
-                            trailing: Icon(Icons.dehaze),
-                            onTap: (){},
-                            onLongPress: (){},
+                        MyListTile(
+                            titulo: 'Desde widget separado',
+                            onTap: (){
+                                globalKey.currentState.showSnackBar(
+                                    new SnackBar(
+                                        content: Text('Alerta de Snackbar 2'),
+                                        duration: Duration(seconds: 4),
+                                        action: SnackBarAction(
+                                            label: 'OK', 
+                                            onPressed: (){}
+                                        ),
+                                    )
+                                );
+                            },
                         ),
                         Text('Página Home'),
                         Text(
@@ -66,40 +159,15 @@ class _MyHomePageState extends State<HomePage> {
                                 fontSize: 40
                             ),
                         ),
-                        Container(
-                            child: Text('Soy Widget Container'),
-                            width: 300,
-                            height: 300,
-                            margin: EdgeInsets.all(20),
-                            padding: EdgeInsets.all(30),
-                            alignment: Alignment.center,
-                            // color: Colors.green,
-                            decoration: BoxDecoration(
-                                color: Colors.blue,
-                                border: Border.all(
-                                    width: 5,
-                                    color: Colors.red
-                                ),
-                                borderRadius: BorderRadius.circular(50)
-                            ),
+                        MyContainer( 
+                            texto: 'Container 1',
+                            colorFondo: Colors.amber,
                         ),
-                        Container(
-                            child: Text('Soy Widget Container'),
-                            width: 300,
-                            height: 300,
-                            margin: EdgeInsets.all(20),
-                            padding: EdgeInsets.all(30),
-                            alignment: Alignment.center,
-                            // color: Colors.green,
-                            decoration: BoxDecoration(
-                                color: Colors.blue,
-                                border: Border.all(
-                                    width: 5,
-                                    color: Colors.red
-                                ),
-                                borderRadius: BorderRadius.circular(50)
-                            ),
+                        MyContainer(
+                            texto: 'Contenedor 2',
+                            colorFondo: Colors.green,
                         ),
+
                         RaisedButton(
                             child: Container(
                                 width: 100,
