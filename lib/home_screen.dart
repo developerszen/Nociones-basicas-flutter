@@ -30,11 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         MyListTile(
                             titulo: 'Widget Button', 
-                            onTap: null
+                            onTap: (){}
                         ),
                         MyListTile(
                             titulo: 'Widget Image', 
-                            onTap: null
+                            onTap: (){}
                         ),
                     ],
                 )

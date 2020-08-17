@@ -1,3 +1,4 @@
+import 'package:app_contador/widgets/image.dart';
 import 'package:flutter/material.dart';
 
 import 'container_screen.dart';
@@ -18,7 +19,7 @@ class _ImageScreenState extends State<ImageScreen> {
             ),
             body: Column(
                 children: [
-                    Text('Imagen Screen'),
+                    MyImage(),
                     // Botones
                     RaisedButton(
                         child: Text('Ir a Contenedor'),

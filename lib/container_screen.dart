@@ -16,26 +16,27 @@ class _ContainerScreenState extends State<ContainerScreen> {
             appBar: AppBar(
                 title: Text('Contenedor'),
             ),
-            body: Column(
+            body: ListView(
                 children: [
-                    Text('Container Screen'),
-                    MyContainer(texto: 'null', colorFondo: Colors.amber),
+                    MyContainer(texto: 'Contenedor 1', colorFondo: Colors.amber),
+                    MyContainer(texto: 'Contenedor 2', colorFondo: Colors.cyan),
+                    MyContainer(texto: 'Contenedor 3', colorFondo: Colors.green),
                     // Botones
-                    RaisedButton(
-                        child: Text('Ir a imagen'),
-                        onPressed: (){
-                            Navigator.push(
-                                context, 
-                                MaterialPageRoute(builder: (context) => ImageScreen())
-                            );
-                        }
-                    ),
-                    RaisedButton(
-                        child: Text('Ir Atras'),
-                        onPressed: (){
-                            Navigator.pop(context);
-                        }
-                    )
+                    // RaisedButton(
+                    //     child: Text('Ir a imagen'),
+                    //     onPressed: (){
+                    //         Navigator.push(
+                    //             context, 
+                    //             MaterialPageRoute(builder: (context) => ImageScreen())
+                    //         );
+                    //     }
+                    // ),
+                    // RaisedButton(
+                    //     child: Text('Ir Atras'),
+                    //     onPressed: (){
+                    //         Navigator.pop(context);
+                    //     }
+                    // )
                 ],
             )
         );
