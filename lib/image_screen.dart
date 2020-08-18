@@ -19,21 +19,24 @@ class _ImageScreenState extends State<ImageScreen> {
             ),
             body: Column(
                 children: [
+                    MyImage(
+                        imagen: NetworkImage('https://strattonapps.com/wp-content/uploads/2020/02/flutter-logo-5086DD11C5-seeklogo.com_.png'),
+                    ),
                     MyImage(),
                     // Botones
-                    RaisedButton(
-                        child: Text('Ir a Contenedor'),
-                        onPressed: (){
-                            Navigator.push(
-                                context, 
-                                MaterialPageRoute(builder: (context) => ContainerScreen())
-                            );
-                        }
-                    ),
+                    // RaisedButton(
+                    //     child: Text('Ir a Contenedor'),
+                    //     onPressed: (){
+                    //         Navigator.push(
+                    //             context, 
+                    //             MaterialPageRoute(builder: (context) => ContainerScreen())
+                    //         );
+                    //     }
+                    // ),
                     RaisedButton(
                         child: Text('Ir atras'),
                         onPressed: (){
-                            Navigator.pop(context);
+                            Navigator.pop(context, true);
                         }
                     )
                 ],

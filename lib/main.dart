@@ -1,6 +1,8 @@
+import 'package:app_contador/button_screen.dart';
+import 'package:app_contador/card_screen.dart';
+import 'package:app_contador/container_screen.dart';
 import 'package:app_contador/home_screen.dart';
-import 'package:app_contador/widgets/container.dart';
-import 'package:app_contador/widgets/list_tile.dart';
+import 'package:app_contador/image_screen.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -13,7 +15,15 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
             title: 'Aplicación Contador',
             debugShowCheckedModeBanner: false,
-            home: HomeScreen(),
+            // home: HomeScreen(),
+            initialRoute: '/HomeScreen',
+            routes: {
+                '/HomeScreen'       : (BuildContext context) => HomeScreen(),
+                '/ContainerScreen'  : (BuildContext context) => ContainerScreen(),
+                '/ButtonScreen'     : (BuildContext context) => ButtonScreen(),
+                '/ImageScreen'      : (BuildContext context) => ImageScreen(),
+                '/CardScreen'       : (BuildContext context) => CardScreen(),
+            },
         );
     }
 }
@@ -122,83 +132,6 @@ class _MyHomePageState extends State<HomePage> {
 
                         //     },
                         // ),
-                        MyListTile(
-                            titulo: 'Desde widget separado',
-                            onTap: (){
-                                globalKey.currentState.showSnackBar(
-                                    new SnackBar(
-                                        content: Text('Alerta de Snackbar 1'),
-                                        duration: Duration(seconds: 4),
-                                        action: SnackBarAction(
-                                            label: 'OK', 
-                                            onPressed: (){}
-                                        ),
-                                    )
-                                );
-                            },
-                        ),
-                        MyListTile(
-                            titulo: 'Desde widget separado',
-                            onTap: (){
-                                globalKey.currentState.showSnackBar(
-                                    new SnackBar(
-                                        content: Text('Alerta de Snackbar 2'),
-                                        duration: Duration(seconds: 4),
-                                        action: SnackBarAction(
-                                            label: 'OK', 
-                                            onPressed: (){}
-                                        ),
-                                    )
-                                );
-                            },
-                        ),
-                        Text('Página Home'),
-                        Text(
-                            '$_contador',
-                            style: TextStyle(
-                                fontSize: 40
-                            ),
-                        ),
-                        MyContainer( 
-                            texto: 'Container 1',
-                            colorFondo: Colors.amber,
-                        ),
-                        MyContainer(
-                            texto: 'Contenedor 2',
-                            colorFondo: Colors.green,
-                        ),
-
-                        RaisedButton(
-                            child: Container(
-                                width: 100,
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                        Icon(Icons.access_alarm),
-                                        Text('Alarma'),
-                                    ],
-                                ),
-                            ),
-                            textColor: Colors.white,
-                            splashColor: Colors.black,
-                            color: Colors.green,
-                            elevation: 10,
-                            onPressed: (){
-                                print('Me presionaste');
-                            },
-                            onLongPress: () {
-                                print('Me mantienes presionado');
-                            },
-                        ),
-                        Image(
-                            image: NetworkImage('https://strattonapps.com/wp-content/uploads/2020/02/flutter-logo-5086DD11C5-seeklogo.com_.png'),
-                            // image: AssetImage('assets/zen_logo.jpeg'),
-                            width: 250,
-                            height: 100,
-                            fit: BoxFit.fill,
-                            color: Colors.amber,
-                        )
-
                     ],
                 )
             ),
